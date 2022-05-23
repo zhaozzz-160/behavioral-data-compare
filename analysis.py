@@ -27,11 +27,11 @@ def compare_df(df1, df2):
 
 def main():
     
-    huawei_data_path = './data/raw/huawei.csv'
+    huawei_data_path = './data/raw/huawei_blood_oxygen.csv'
     e66_data_path = './data/raw/e66.json'
     
-    df1 = read_huawei_heart_rate(huawei_data_path)
-    df2 = read_e66_heart_rate(e66_data_path)
+    df1 = read_huawei_blood_oxygen(huawei_data_path)
+    df2 = read_e66_blood_oxygen(e66_data_path)
     
     doc = compare_df(df1, df2)
         
