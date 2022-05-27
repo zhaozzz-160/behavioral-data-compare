@@ -23,7 +23,7 @@ def read_huawei_heart_rate(file_name):
     # 设置时间列为索引
     df.set_index('time', inplace=True)
     # 重采样，每分钟一个点
-    df = df.resample('1t').last()
+    df = df.resample('5t').last()
     # 用相邻值填充缺失值
     df = df.fillna(method='ffill')
     
@@ -45,7 +45,7 @@ def read_huawei_blood_oxygen(file_name):
     # 设置时间列为索引
     df.set_index('time', inplace=True)
     # 重采样，每分钟一个点
-    df = df.resample('1t').last()
+    df = df.resample('5t').last()
     # 用相邻值填充缺失值
     df = df.fillna(method='ffill')
     
@@ -67,7 +67,7 @@ def read_huawei_step_count(file_name):
     # 设置时间列为索引
     df.set_index('time', inplace=True)
     # 重采样，每分钟一个点
-    df = df.resample('1t').last()
+    df = df.resample('5t').last()
     # 用相邻值填充缺失值
     df = df.fillna(0)
     
@@ -93,7 +93,7 @@ def read_e66_heart_rate(file_name):
     # 设置时间列为索引
     df.set_index('time', inplace=True)
     # 重采样，每分钟一个点
-    df = df.resample('1t').last()
+    df = df.resample('5t').last()
     # 用相邻值填充缺失值
     df = df.fillna(method='ffill')
     
@@ -116,7 +116,7 @@ def read_e66_blood_oxygen(file_name):
     # 设置时间列为索引
     df.set_index('time', inplace=True)
     # 重采样，每分钟一个点
-    df = df.resample('1t').last()
+    df = df.resample('5t').last()
     # 用相邻值填充缺失值
     df = df.fillna(method='ffill')
     

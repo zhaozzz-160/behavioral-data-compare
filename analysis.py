@@ -27,14 +27,14 @@ def compare_df(df1, df2):
 
 def main():
     
-    huawei_data_path = './data/raw/huawei_heart_rate.csv'
-    e66_data_path = './data/raw/e66.json'
+    huawei_data_path = '/home/ubuntu/working-dir/huawei_data-proj/数据比较/data/raw/huawei_heart_rate.csv'
+    e66_data_path = '/home/ubuntu/working-dir/huawei_data-proj/数据比较/data/raw/e66.json'
     
     df1 = read_huawei_heart_rate(huawei_data_path)
     df2 = read_e66_heart_rate(e66_data_path)
     
     doc = compare_df(df1, df2)
-        
+
     print(doc)
     
     
