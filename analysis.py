@@ -18,9 +18,13 @@ def compare_df(df1, df2):
     plt.plot(df.index, df[['value_x', 'value_y']])
     plt.show()
     
-    result['mae'] = mean_absolute_error(df['value_x'], df['value_y'])
+    
     result['describe'] = df.describe()
+    result['mae'] = mean_absolute_error(df['value_x'], df['value_y'])
     result['cos_similarity'] = 1 - spatial.distance.cosine(df['value_x'], df['value_y'])
+    print('mae:', result['mae'])
+    print('cos_similarity:', result['cos_similarity'])
+    print('describe:', result['describe'])
     
     return result
 
@@ -35,7 +39,7 @@ def main():
     
     doc = compare_df(df1, df2)
 
-    print(doc)
+    # print(doc)
     
     
 
