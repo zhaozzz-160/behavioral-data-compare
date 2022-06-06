@@ -3,6 +3,8 @@ import json
 import os
 
 
+### Read data File ###
+
 def read_huawei_heart_rate(file_name):
     """
     Reads a csv file and returns a dataframe
@@ -65,7 +67,7 @@ def read_huawei_step_count(file_name):
     # 设置时间列为索引
     df.set_index('time', inplace=True)
     # 重采样，每分钟一个点
-    df = df.resample('5t').last()
+    df = df.resample('1t').last()
     # 用相邻值填充缺失值
     df = df.fillna(0)
     
@@ -147,4 +149,26 @@ def read_e66_step_count(file_name):
     df = df.fillna(method='ffill')
     
     return df
+
+
+### manipulate data ###
+def generate_merge_df(df1, df2):
+    """
+    Generates a dataframe that contains all the data from both dataframes
+    """
+    df = pd.merge(df1, df2, on='time')
+    df = df.dropna()
+    df.columns = ['value1', 'value2']
+    return df
     
+def generate_np_array(df_column):
+    """
+    Generates a numpy array from a dataframe column
+    """
+    return df_column.values
+
+def generate_description(df):
+    """
+    Generates a description of the dataframe
+    """
+    return df.describe()
