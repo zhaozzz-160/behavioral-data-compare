@@ -9,7 +9,7 @@ def calc_euclidean(series1, series2):
 
 
 def calc_mae(series1, series2):
-    return np.mean(np.abs((series1 - series2) / series1))
+    return np.mean(np.abs((series1 - series2)))
 
 
 def calc_mape(series1, series2):

@@ -22,10 +22,8 @@ def read_huawei_heart_rate(file_name):
     df = df[df['time'] < '2022-05-19']
     # 设置时间列为索引
     df.set_index('time', inplace=True)
-    # 重采样，每分钟一个点
-    df = df.resample('5t').last()
-    # 用相邻值填充缺失值
-    df = df.fillna(method='ffill')
+    df.sort_index(inplace=True)
+    
     
     return df
 
@@ -44,10 +42,8 @@ def read_huawei_blood_oxygen(file_name):
     df = df[df['time'] < '2022-05-19']
     # 设置时间列为索引
     df.set_index('time', inplace=True)
-    # 重采样，每分钟一个点
-    df = df.resample('5t').last()
-    # 用相邻值填充缺失值
-    df = df.fillna(method='ffill')
+    df.sort_index(inplace=True)
+
     
     return df
 
@@ -66,10 +62,7 @@ def read_huawei_step_count(file_name):
     df = df[df['time'] < '2022-05-19']
     # 设置时间列为索引
     df.set_index('time', inplace=True)
-    # 重采样，每分钟一个点
-    df = df.resample('1t').last()
-    # 用相邻值填充缺失值
-    df = df.fillna(0)
+    df.sort_index(inplace=True)
     
     return df.cumsum()
 
@@ -92,10 +85,7 @@ def read_e66_heart_rate(file_name):
     df = df[df['time'] < '2022-05-19']
     # 设置时间列为索引
     df.set_index('time', inplace=True)
-    # 重采样，每分钟一个点
-    df = df.resample('5t').last()
-    # 用相邻值填充缺失值
-    df = df.fillna(method='ffill')
+    df.sort_index(inplace=True)
     
     return df
 
@@ -115,15 +105,10 @@ def read_e66_blood_oxygen(file_name):
     df = df[df['time'] < '2022-05-19']
     # 设置时间列为索引
     df.set_index('time', inplace=True)
-    # 重采样，每分钟一个点
-    df = df.resample('5t').last()
-    # 用相邻值填充缺失值
-    df = df.fillna(method='ffill')
+    df.sort_index(inplace=True)
     
     return df
 
-
-    
     
 def read_e66_step_count(file_name):
     
@@ -143,12 +128,18 @@ def read_e66_step_count(file_name):
     df = df[df['time'] < '2022-05-19']
     # 设置时间列为索引
     df.set_index('time', inplace=True)
-    # 重采样，每分钟一个点
-    df = df.resample('1t').last()
-    # 用相邻值填充缺失值
-    df = df.fillna(method='ffill')
+    df.sort_index(inplace=True)
     
     return df
+
+
+def resample_5t(df):
+    """
+    Resamples the dataframe to 5 minutes
+    """
+    df = df.resample('5t').pad()
+    return df
+
 
 
 ### manipulate data ###
