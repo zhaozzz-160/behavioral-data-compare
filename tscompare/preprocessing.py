@@ -137,7 +137,7 @@ def resample_5t(df):
     """
     Resamples the dataframe to 5 minutes
     """
-    df = df.resample('5t').pad()
+    df = df.resample('5t').ffill()
     return df
 
 
