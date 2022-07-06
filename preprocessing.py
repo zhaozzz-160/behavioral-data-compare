@@ -64,7 +64,7 @@ def read_huawei_step_count(file_name):
     df.set_index('time', inplace=True)
     df.sort_index(inplace=True)
     
-    return df.cumsum()
+    return df
 
 
 
@@ -130,7 +130,7 @@ def read_e66_step_count(file_name):
     df.set_index('time', inplace=True)
     df.sort_index(inplace=True)
     
-    return df
+    return df.diff()
 
 
 def resample_5t(df):
@@ -138,6 +138,13 @@ def resample_5t(df):
     Resamples the dataframe to 5 minutes
     """
     df = df.resample('5t').ffill()
+    return df
+
+def resample_1h(df):
+    """
+    Resamples the dataframe to 1 hour
+    """
+    df = df.resample('1h').sum()
     return df
 
 
