@@ -1,0 +1,155 @@
+[
+    {
+        "awakeCount": 4,
+        "awakeTime": 8,
+        "beginTime": 86,
+        "calendar": "20220630",
+        "colorIndexOut": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1
+        ],
+        "deepTime": 111,
+        "endTime": 571,
+        "lightTime": 366,
+        "sleepInfoList": [
+            {
+                "colorIndex": 1,
+                "diffTime": 15,
+                "endTime": 101,
+                "startTime": 86
+            },
+            {
+                "colorIndex": 0,
+                "diffTime": 40,
+                "endTime": 141,
+                "startTime": 101
+            },
+            {
+                "colorIndex": 1,
+                "diffTime": 154,
+                "endTime": 295,
+                "startTime": 141
+            },
+            {
+                "colorIndex": 0,
+                "diffTime": 39,
+                "endTime": 334,
+                "startTime": 295
+            },
+            {
+                "colorIndex": 1,
+                "diffTime": 146,
+                "endTime": 480,
+                "startTime": 334
+            },
+            {
+                "colorIndex": 0,
+                "diffTime": 32,
+                "endTime": 512,
+                "startTime": 480
+            },
+            {
+                "colorIndex": 1,
+                "diffTime": 24,
+                "endTime": 536,
+                "startTime": 512
+            },
+            {
+                "colorIndex": 2,
+                "diffTime": 1,
+                "endTime": 537,
+                "startTime": 536
+            },
+            {
+                "colorIndex": 1,
+                "diffTime": 14,
+                "endTime": 551,
+                "startTime": 537
+            },
+            {
+                "colorIndex": 2,
+                "diffTime": 1,
+                "endTime": 552,
+                "startTime": 551
+            },
+            {
+                "colorIndex": 1,
+                "diffTime": 6,
+                "endTime": 558,
+                "startTime": 552
+            },
+            {
+                "colorIndex": 2,
+                "diffTime": 1,
+                "endTime": 559,
+                "startTime": 558
+            },
+            {
+                "colorIndex": 1,
+                "diffTime": 2,
+                "endTime": 561,
+                "startTime": 559
+            },
+            {
+                "colorIndex": 2,
+                "diffTime": 5,
+                "endTime": 566,
+                "startTime": 561
+            },
+            {
+                "colorIndex": 1,
+                "diffTime": 5,
+                "endTime": 571,
+                "startTime": 566
+            }
+        ],
+        "sleepTotalTime": 485,
+        "timeArray": [
+            15,
+            40,
+            154,
+            39,
+            146,
+            32,
+            24,
+            1,
+            14,
+            1,
+            6,
+            1,
+            2,
+            5,
+            5
+        ],
+        "timePoint": [
+            101,
+            141,
+            295,
+            334,
+            480,
+            512,
+            536,
+            537,
+            551,
+            552,
+            558,
+            559,
+            561,
+            566,
+            571
+        ]
+    }
+]

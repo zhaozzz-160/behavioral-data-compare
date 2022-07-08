@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 import os
-
+import datetime
 
 def read_huawei_heart_rate(file_name):
     """
@@ -148,3 +148,25 @@ def read_e66_step_count(file_name):
     
     return df
     
+def read_f60_heart_rate(file_name):
+    
+    df = pd.read_json(file_name)
+    # calendar column to int
+    df['calendar'] = df['calendar'].astype(int)
+    
+    def generate_datetime(df):
+        return datetime.datetime(df['calendar']//10000, df['calendar']%10000//100, df['calendar']%100, df['time']//60, df['time']%60)
+    
+    df['datetime'] = df.apply(lambda x: generate_datetime(x), axis=1)
+    # df['datetime'] = datetime.datetime(df['calendar']//10000, df['calendar']%10000//100, df['calendar']%100, df['time']//60, df['time']%60)
+    df.drop(['calendar'], axis=1, inplace=True)
+    df.drop(['time'], axis=1, inplace=True)
+    df.columns = ['value', 'time']
+    df.set_index('time', inplace=True)
+    return df
+
+
+
+if __name__=='__main__':
+    df = read_f60_heart_rate('/home/ubuntu/working-dir/huawei_data-proj/数据比较/data/2022-7-3/History-data-heartrate-2022-06-30-21-04-00.json')
+    print(df)
